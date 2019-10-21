@@ -1,4 +1,4 @@
-package  com.frank.sga.ui.login;
+package com.frank.sga.ui.login;
 
 import androidx.annotation.Nullable;
 

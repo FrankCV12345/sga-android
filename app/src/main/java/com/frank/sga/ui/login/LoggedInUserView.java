@@ -1,4 +1,4 @@
-package  com.frank.sga.ui.login;
+package com.frank.sga.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
