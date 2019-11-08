@@ -7,6 +7,11 @@
     tools:context=".MenuPrincipal"
     android:background="@color/colorBackGroundBlackActiviti"
     >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar">
+
+    </include>
     <RelativeLayout
         android:id="@+id/ContIconosMenu"
         android:layout_width="wrap_content"

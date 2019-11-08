@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorTextForButton">#FFF</color>
     <color name="colorBackGroundBlackActiviti">#303030</color>
+    <color name="colorBackGroundToolbar">#212121</color>
     <color name="colorBackGroundInput">#FFF</color>
     <color name="colorTextTitulo">#FFF</color>
     <color name="colorBackgroundIconMenu">#024CA4</color>
