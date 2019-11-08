@@ -7,4 +7,5 @@
     <color name="colorBackGroundBlackActiviti">#303030</color>
     <color name="colorBackGroundInput">#FFF</color>
     <color name="colorTextTitulo">#FFF</color>
+    <color name="colorBackgroundIconMenu">#024CA4</color>
 </resources>

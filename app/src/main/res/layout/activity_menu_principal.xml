@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuPrincipal"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+    <RelativeLayout
+        android:id="@+id/ContIconosMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+
+        >
+        <RelativeLayout
+            android:id="@+id/contIconCalificaProfesores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroundIconMenu"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5dp"
+
+            >
+            <ImageView
+                android:id="@+id/iconCalificaProfesor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_califica_profesor"
+                android:maxWidth="98dp"
+                android:adjustViewBounds="true"
+                android:layout_centerHorizontal="true"
+                >
+
+            </ImageView>
+            <TextView
+                android:layout_below="@id/iconCalificaProfesor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Califica profesor"
+                android:textColor="#FFF"
+                android:layout_centerHorizontal="true"
+                >
+
+            </TextView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/contIconCalificaProfesores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contIconSolicitudes"
+            android:background="@color/colorBackgroundIconMenu"
+            android:layout_centerHorizontal="true"
+            android:padding="4dp"
+            android:layout_margin="5dp"
+            >
+            <ImageView
+                android:id="@+id/iconSolicitudes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_solicitudes"
+                >
+            </ImageView>
+            <TextView
+                android:layout_below="@+id/iconSolicitudes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Solicitudes"
+                android:textColor="#FFF"
+                >
+
+            </TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ContIconCalificaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroundIconMenu"
+            android:padding="4dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/contIconSolicitudes"
+            android:layout_margin="5dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_alignParentTop="true"
+                android:id="@+id/iconCalificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_calificaciones"
+                >
+            </androidx.appcompat.widget.AppCompatImageView>
+            <TextView
+                android:id="@+id/TitleIconCalificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calificaciones"
+                android:textColor="#FFFF"
+                android:layout_below="@id/iconCalificaciones"
+                android:layout_centerHorizontal="true"
+                >
+
+            </TextView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
