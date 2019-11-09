@@ -28,12 +28,12 @@
         <item name="android:paddingLeft">6dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
     </style>
     <style name="LinealIndicadores">
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textStyle">bold</item>
     </style>
     <style name="TextoIndicesPerfilProfe">
         <item name="android:textColor">#FFF</item>
@@ -41,6 +41,13 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">130dp</item>
+    </style>
+
+    <style name="TextoDatosProfe">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">15dp</item>
     </style>
 
 </resources>

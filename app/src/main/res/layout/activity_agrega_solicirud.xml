@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.solicitudes.AgregaSolicirud"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        >
+
+    </include>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorBackgroudTblLstProfesores"
+        >
+        <LinearLayout
+            android:id="@+id/ContListTiposSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de solicitud :"
+                android:textColor="#000"
+                android:textStyle="bold"
+                ></TextView>
+            <Spinner
+                android:id="@+id/planets_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/ContComentariosSolicitud"
+            android:layout_below="@+id/ContListTiposSolicitudes"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tituloComentariosSolicitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aqui describa o proporcione  mas detalles sobre su solicitud :"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_below="@+id/tituloComentariosSolicitud"
+                android:id="@+id/EditTextComentariosSobreSolicitud"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff"
+                android:inputType="text|textMultiLine"
+                android:gravity="top"
+                android:scrollbars="vertical"
+                android:textSize="12dp"
+                android:lines="8">
+
+            </EditText>
+        </RelativeLayout>
+
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/ContComentariosSolicitud"
+            android:id="@+id/btnEnviaSolictud"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:text="Enviar"
+            android:textColor="@color/colorTextForButton"
+            android:layout_alignParentLeft="true"
+            />
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/ContComentariosSolicitud"
+            android:id="@+id/BtnCancelaSolicitud"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@color/colorAccent"
+            android:text="Cancelar"
+            android:textColor="@color/colorTextForButton"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.crusos.DetalleCurso"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        >
+        <RelativeLayout
+            android:id="@+id/contDetalleCursoNotas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroudTblLstProfesores"
+            >
+            <LinearLayout
+                android:id="@+id/LinealNota01"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Evaluacion continua 01 : 16"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/LinealNota02"
+                android:layout_below="@+id/LinealNota01"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Evaluacion continua 02 : 12"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/LinealNota03"
+                android:layout_below="@+id/LinealNota02"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Evaluacion continua 03 : 10"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/LinealPromedio"
+                android:layout_below="@+id/LinealNota03"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Promedio : 10"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinealEstadoPromedio"
+                android:layout_below="@+id/LinealPromedio"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#cb3234"
+                    android:textStyle="bold"
+                    android:text="DESAPROBADO"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/contDetalleCursoNotas"
+            android:id="@+id/btnEnviaSolictud"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:text="Mas sobre el Profesor"
+            android:textColor="@color/colorTextForButton"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+</RelativeLayout>

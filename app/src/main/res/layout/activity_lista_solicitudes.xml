@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListaSolicitudes"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        >
+
+    </include>
+
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageButton
+            android:layout_alignParentTop="true"
+            android:id="@+id/BtnaddSolicitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add" />
+            >
+        <LinearLayout
+            android:id="@+id/titulosTablaListaSolicitudes"
+            android:layout_below="@+id/BtnaddSolicitud"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/colorBackgroudTblLstProfesores"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="ID Solicitud"
+                style="@style/TitulosTablas"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Tipo solicitud"
+                style="@style/TitulosTablas"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Estado"
+                style="@style/TitulosTablas"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Nombre Responsable"
+                style="@style/TitulosTablas"
+                />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/ListViewSolicitudes"
+            android:layout_below="@id/titulosTablaListaSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackgroudTblLstProfesores"
+            />
+
+  </RelativeLayout>
+
+</RelativeLayout>

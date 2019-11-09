@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.crusos.DatosProfesor"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        ></include>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/nombreProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextoDatosProfe"
+            android:text="Nombre : Juan Marco"
+
+            />
+
+        <TextView
+            android:id="@+id/ApellidoProfe"
+            android:layout_below="@+id/nombreProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextoDatosProfe"
+            android:text="Apellidos : Ruis Castro"
+            />
+        <TextView
+            android:id="@+id/CorreoProfe"
+            android:layout_below="@+id/ApellidoProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo : Juan@gmail.com"
+            style="@style/TextoDatosProfe"
+            />
+        <TextView
+            android:id="@+id/TelefonoProfe"
+            android:layout_below="@+id/CorreoProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefono : 9904189765"
+            style="@style/TextoDatosProfe"
+            />
+    </RelativeLayout>
+</RelativeLayout>

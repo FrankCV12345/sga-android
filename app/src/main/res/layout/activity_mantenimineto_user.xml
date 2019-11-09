@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mantenimientoUser.manteniminetoUser"
+    android:background="@color/colorBackGroundBlackActiviti"
+    >
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        ></include>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:padding="15dp"
+            >
+            <LinearLayout
+                android:id="@+id/linearNombreManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Nombre : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <EditText
+                    android:background="@color/colorBackgroudTblLstProfesores"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/linearNombreManteni"
+                android:id="@+id/linearApellidosManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Apellidos : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <EditText
+                    android:background="@color/colorBackgroudTblLstProfesores"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/linearApellidosManteni"
+                android:id="@+id/linearDNIManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="DNI : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <EditText
+                    android:background="@color/colorBackgroudTblLstProfesores"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/linearDNIManteni"
+                android:id="@+id/lineartipoDocManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Tipo Doc. : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"></Spinner>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_below="@+id/lineartipoDocManteni"
+                android:id="@+id/linearCorreoManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Correo : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <EditText
+                    android:background="@color/colorBackgroudTblLstProfesores"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/linearCorreoManteni"
+                android:id="@+id/linearTelefonoManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Telefono : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <EditText
+                    android:background="@color/colorBackgroudTblLstProfesores"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/linearTelefonoManteni"
+                android:id="@+id/linearTipoSexoManteni"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:text="Tipo sexo : "
+                    android:textColor="#000"
+                    android:gravity="center"
+                    ></TextView>
+
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"></Spinner>
+            </LinearLayout>
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/linearTipoSexoManteni"
+                android:id="@+id/btnActualizaDatos"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"
+                android:text="Enviar"
+                android:textColor="@color/colorTextForButton"
+                android:layout_alignParentLeft="true"
+                />
+            <Button
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/linearTipoSexoManteni"
+                android:id="@+id/BtnCancelaAcrualizacion"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@color/colorAccent"
+                android:text="Cancelar"
+                android:textColor="@color/colorTextForButton"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
