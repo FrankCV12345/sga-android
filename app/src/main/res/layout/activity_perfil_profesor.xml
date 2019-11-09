@@ -11,27 +11,239 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         ></include>
-    <LinearLayout
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:background="#FFFF"
-        >
-        <LinearLayout
-            android:id="@+id/porcentagePreg1"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:background="#3376A7"
-            android:orientation="horizontal"
-            ></LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="#000"
-            android:text="30%"
-            >
 
-        </TextView>
-    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/ContPromedioProfesor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/contBarrasIndiciesCalifProfe"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/LinearIndicadorDominaTema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Que tanto domina el tema ?"
+                    style="@style/TextoIndicesPerfilProfe"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFF"
+                    >
+                    <LinearLayout
+                        android:id="@+id/porcentagePreg1"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:background="#3376A7"
+                        android:orientation="horizontal"
+                        ></LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:text="30%"
+                        >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearAprovechaTiempo"
+                android:layout_below="@id/LinearIndicadorDominaTema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Que tanto  aprovecha tiempo ?"
+
+                    style="@style/TextoIndicesPerfilProfe"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFF"
+                    >
+                    <LinearLayout
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:background="#3376A7"
+                        android:orientation="horizontal"
+                        ></LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:text="30%"
+                        >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearIndicadorResuelveDudas"
+                android:layout_below="@id/LinearAprovechaTiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Resulve Dudas ?"
+
+                    style="@style/TextoIndicesPerfilProfe"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFF"
+                    >
+                    <LinearLayout
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:background="#3376A7"
+                        android:orientation="horizontal"
+                        ></LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:text="30%"
+                        >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/LinearIndicardoEsCalroExpresarse"
+                android:layout_below="@id/LinearIndicadorResuelveDudas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Es claro al expresarse ?"
+                    style="@style/TextoIndicesPerfilProfe"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFF"
+                    >
+                    <LinearLayout
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:background="#3376A7"
+                        android:orientation="horizontal"
+                        ></LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:text="30%"
+                        >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/LinearIndicarPreparado"
+                android:layout_below="@id/LinearIndicardoEsCalroExpresarse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores"
+                >
+                <TextView
+                    android:layout_height="match_parent"
+                    android:text="Prepara sus clases ?"
+                    style="@style/TextoIndicesPerfilProfe"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFF"
+                    >
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:background="#3376A7"
+                        android:orientation="horizontal"
+                        ></LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#000"
+                        android:text="30%"
+                        >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/contBarrasIndiciesCalifProfe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            >
+            <TextView
+                android:id="@+id/tituloPerfilComentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comentarios : "
+                android:textColor="#FFFF"
+                >
+
+            </TextView>
+            <ListView
+                android:layout_below="@+id/tituloPerfilComentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                ></ListView>
+        </RelativeLayout>
+    </RelativeLayout>
+
 </RelativeLayout>
