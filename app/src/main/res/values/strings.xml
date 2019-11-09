@@ -10,4 +10,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="Titulo_login">Bienbenido al SGA del Instituto Arzobispo Loayza</string>
+    <string name="TextoTituloCalificaProfesor">En una escala de 1 al 5 donde 5 es excelente  y  1 es muy malo, valore los diferentes aptectos del profesor</string>
 </resources>

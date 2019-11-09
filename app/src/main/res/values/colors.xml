@@ -9,4 +9,6 @@
     <color name="colorBackGroundInput">#FFF</color>
     <color name="colorTextTitulo">#FFF</color>
     <color name="colorBackgroundIconMenu">#024CA4</color>
+    <color name="colorBackgroudTblLstProfesores">#C4C4C4</color>
+    <color name="colorTextForTitlesBlack">#000</color>
 </resources>
