@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalificaProfesor"
+    tools:context=".ui.CalificacionProfesor.CalificaProfesor"
     android:background="@color/colorBackGroundBlackActiviti"
     >
     <include

@@ -1,4 +1,4 @@
-package com.frank.sga;
+package com.frank.sga.ui.CalificacionProfesor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+
+import com.frank.sga.R;
 
 public class PerfilProfesor extends AppCompatActivity {
 

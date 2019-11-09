@@ -13,10 +13,10 @@
         <activity android:name=".ui.mantenimientoUser.manteniminetoUser" />
         <activity android:name=".ui.crusos.ListaCursos" />
         <activity android:name=".ui.solicitudes.AgregaSolicirud" />
-        <activity android:name=".ListaSolicitudes" />
-        <activity android:name=".PerfilProfesor" />
-        <activity android:name=".CalificaProfesor" />
-        <activity android:name=".ListaProfesores" />
+        <activity android:name=".ui.solicitudes.ListaSolicitudes" />
+        <activity android:name=".ui.CalificacionProfesor.PerfilProfesor" />
+        <activity android:name=".ui.CalificacionProfesor.CalificaProfesor" />
+        <activity android:name=".ui.CalificacionProfesor.ListaProfesores" />
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".ui.login.LoginActivity" /> <!-- android:name="" -->
         <activity

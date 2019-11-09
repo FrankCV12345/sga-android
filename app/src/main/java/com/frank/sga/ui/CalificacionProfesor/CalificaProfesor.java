@@ -1,4 +1,4 @@
-package com.frank.sga;
+package com.frank.sga.ui.CalificacionProfesor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ListaSolicitudes extends AppCompatActivity {
+import com.frank.sga.R;
+
+public class CalificaProfesor extends AppCompatActivity {
     Toolbar toolbarMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_solicitudes);
+        setContentView(R.layout.activity_califica_profesor);
+
         toolbarMenu = findViewById(R.id.toolbar);
         setSupportActionBar(toolbarMenu);
     }
