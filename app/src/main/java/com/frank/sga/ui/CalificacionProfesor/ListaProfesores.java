@@ -18,6 +18,7 @@ public class ListaProfesores extends AppCompatActivity {
 
 
         toolbarMenu = findViewById(R.id.toolbar);
+        toolbarMenu.setTitle(R.string.ListaProfe);
         setSupportActionBar(toolbarMenu);
     }
 
@@ -27,13 +28,17 @@ public class ListaProfesores extends AppCompatActivity {
         return true;
     }
 
+
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
 
                 break;
-            case R.id.IrMenu:
+            case R.id.IrMenuPrincipal:
                 break;
+            case R.id.IrActualizaDatos:
+                break;
+
         }
         return true;
     }

@@ -24,13 +24,17 @@ public class DatosProfesor extends AppCompatActivity {
         return true;
     }
 
+
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
 
                 break;
-            case R.id.IrMenu:
+            case R.id.IrMenuPrincipal:
                 break;
+            case R.id.IrActualizaDatos:
+                break;
+
         }
         return true;
     }

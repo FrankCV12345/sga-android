@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu  xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <Item
-        android:id="@+id/CerrarCession"
-        android:tooltipText="uno"/>
-    <Item
-        android:id="@+id/IrMenu"
-        android:tooltipText="Ir al menu principal"/>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/IrMenuPrincipal"
+        android:title="Menu principal"/>
+    <item
+        android:id="@+id/IrActualizaDatos"
+        android:title="Actualizar  Mis Datos"/>
+    <item android:id="@+id/CerrarCession"
+        android:title="Cerrar Sesion"
+        />
 </menu>

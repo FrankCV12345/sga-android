@@ -94,7 +94,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_alignParentTop="true"
-                android:id="@+id/iconCalificaciones"
+                android:id="@+id/iconCursos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_calificaciones"
@@ -104,9 +104,9 @@
                 android:id="@+id/TitleIconCalificacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calificaciones"
+                android:text="Cursos"
                 android:textColor="#FFFF"
-                android:layout_below="@id/iconCalificaciones"
+                android:layout_below="@id/iconCursos"
                 android:layout_centerHorizontal="true"
                 >
 

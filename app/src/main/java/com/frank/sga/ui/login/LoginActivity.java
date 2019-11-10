@@ -1,131 +1,118 @@
 package com.frank.sga.ui.login;
 
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.frank.sga.MenuPrincipal;
+import com.frank.sga.Utilidades.DirecionServicioRest;
+import com.frank.sga.Utilidades.MemoriaLocal;
 import com.frank.sga.R;
-import com.frank.sga.ui.login.LoginViewModel;
-import com.frank.sga.ui.login.LoginViewModelFactory;
+import com.frank.sga.data.model.usuario;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private LoginViewModel loginViewModel;
-
+    private RequestQueue mQueque;
+    Button btnLogin;
+    EditText editTextCorreo,editTextPassword;
+    String correo =null;
+    String password = null;
+    usuario user  = new usuario();
+    Gson gson = new Gson();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
-            @Override
-            public void onChanged(@Nullable LoginFormState loginFormState) {
-                if (loginFormState == null) {
-                    return;
-                }
-                loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
-                }
-                if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
-                }
+            setContentView(R.layout.activity_login);
+            MemoriaLocal.CONTEXTOLOGIN = getApplicationContext();
+            if(MemoriaLocal.getDefaults("token",getApplicationContext()) !=null){
+                    startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
             }
-        });
+            btnLogin = findViewById(R.id.btnLogin);
+            editTextCorreo = findViewById(R.id.Correo);
+            editTextPassword = findViewById(R.id.password);
+            mQueque = new Volley().newRequestQueue(getApplicationContext());
 
-        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
-            @Override
-            public void onChanged(@Nullable LoginResult loginResult) {
-                if (loginResult == null) {
-                    return;
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    correo = editTextCorreo.getText().toString();
+                    password = editTextPassword.getText().toString();
+
+                    if(correo != null && password !=null){
+                       if(correo.length() > 0 && password.length() > 0){
+                           Logea();
+                       }else{
+                           Toast.makeText(getApplicationContext(),"Datos no validos",Toast.LENGTH_LONG).show();
+                       }
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Datos no validos",Toast.LENGTH_LONG).show();
+                    }
+                    editTextCorreo.setText("");
+                    editTextPassword.setText("");
+
                 }
-                loadingProgressBar.setVisibility(View.GONE);
-                if (loginResult.getError() != null) {
-                    showLoginFailed(loginResult.getError());
-                }
-                if (loginResult.getSuccess() != null) {
-                    updateUiWithUser(loginResult.getSuccess());
-                }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
-            }
-        });
-
-        TextWatcher afterTextChangedListener = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
-                }
-                return false;
-            }
-        });
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        });
+            });
     }
 
-    private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+    public void Logea(){
+        String ServcioLogin = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_LOGIN;
+        user.setCorreo(correo);
+        user.setPassword(password);
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(gson.toJson(user,usuario.class));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ServcioLogin, jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    System.out.println("ESTOO "+response.toString());
+                    MemoriaLocal.setDefaults("token",response.getString("token"),getApplicationContext());
+                    MemoriaLocal.setDefaults("idUser",response.getString("idUser"),getApplicationContext());
+
+                    MemoriaLocal.setDefaults("Nombre",response.getString("nombre"),getApplicationContext());
+                    startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
+                    Toast.makeText(getApplicationContext(),response.getString("nombre"),Toast.LENGTH_LONG).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        })  ;
+
+    mQueque.add(jsonObjectRequest);
+
     }
 
-    private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
-    }
+
+
+
 }

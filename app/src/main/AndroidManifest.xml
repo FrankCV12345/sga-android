@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.frank.sga">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.crusos.DatosProfesor"></activity>
-        <activity android:name=".ui.mantenimientoUser.manteniminetoUser" />
+        <activity android:name=".ui.mantUser.manteniminetoUser" />
         <activity android:name=".ui.crusos.ListaCursos" />
         <activity android:name=".ui.solicitudes.AgregaSolicirud" />
         <activity android:name=".ui.solicitudes.ListaSolicitudes" />
@@ -18,9 +19,9 @@
         <activity android:name=".ui.CalificacionProfesor.CalificaProfesor" />
         <activity android:name=".ui.CalificacionProfesor.ListaProfesores" />
         <activity android:name=".MenuPrincipal" />
-        <activity android:name=".ui.login.LoginActivity" /> <!-- android:name="" -->
+        <activity android:name="ui.crusos.DetalleCurso" /> <!-- android:name="" -->
         <activity
-            android:name=".ui.crusos.DetalleCurso"
+            android:name=".ui.login.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

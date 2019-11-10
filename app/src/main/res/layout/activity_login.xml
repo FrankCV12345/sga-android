@@ -29,21 +29,25 @@
     </TextView>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/Correo"
         style="@style/Input"
         android:layout_below="@+id/tituloLogin"
         android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
         />
 
     <EditText
         style="@style/Input"
         android:id="@+id/password"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/Correo"
+        android:inputType="textPassword"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        android:maxLength="15"
         android:hint="@string/prompt_password"
         />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorPrimary"

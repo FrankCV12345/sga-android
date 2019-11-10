@@ -16,6 +16,7 @@ public class ListaCursos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_cursos);
         toolbarMenu = findViewById(R.id.toolbar);
+        toolbarMenu.setTitle(R.string.MisCursos);
         setSupportActionBar(toolbarMenu);
     }
 
@@ -24,13 +25,17 @@ public class ListaCursos extends AppCompatActivity {
         return true;
     }
 
+
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
 
                 break;
-            case R.id.IrMenu:
+            case R.id.IrMenuPrincipal:
                 break;
+            case R.id.IrActualizaDatos:
+                break;
+
         }
         return true;
     }
