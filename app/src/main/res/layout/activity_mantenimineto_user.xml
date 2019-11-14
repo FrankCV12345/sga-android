@@ -40,9 +40,8 @@
 
                 <EditText
                     android:id="@+id/ETNombreUser"
-                    android:background="@color/colorBackgroudTblLstProfesores"
+                    style="@style/Input"
                     android:layout_width="200dp"
-                    android:layout_height="match_parent"
 
                     />
             </LinearLayout>
@@ -64,9 +63,8 @@
 
                 <EditText
                     android:id="@+id/ETApellidoUser"
-                    android:background="@color/colorBackgroudTblLstProfesores"
+                    style="@style/Input"
                     android:layout_width="200dp"
-                    android:layout_height="match_parent"
 
                     />
             </LinearLayout>
@@ -88,9 +86,8 @@
 
                 <EditText
                     android:id="@+id/ETdni"
-                    android:background="@color/colorBackgroudTblLstProfesores"
+                    style="@style/Input"
                     android:layout_width="200dp"
-                    android:layout_height="match_parent"
 
                     />
             </LinearLayout>
@@ -112,6 +109,7 @@
 
                 <Spinner
                     android:layout_width="fill_parent"
+                    style="@style/Input"
                     android:layout_height="match_parent"></Spinner>
             </LinearLayout>
 
@@ -133,9 +131,8 @@
 
                 <EditText
                     android:id="@+id/ETCorreo"
-                    android:background="@color/colorBackgroudTblLstProfesores"
                     android:layout_width="200dp"
-                    android:layout_height="match_parent"
+                    style="@style/Input"
 
                     />
             </LinearLayout>
@@ -157,9 +154,8 @@
 
                 <EditText
                     android:id="@+id/ETTelefono"
-                    android:background="@color/colorBackgroudTblLstProfesores"
                     android:layout_width="200dp"
-                    android:layout_height="match_parent"
+                    style="@style/Input"
 
                     />
             </LinearLayout>

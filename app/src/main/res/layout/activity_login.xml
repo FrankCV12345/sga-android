@@ -27,49 +27,58 @@
         android:layout_marginBottom="25dp"
         >
     </TextView>
-
-    <EditText
-        android:id="@+id/Correo"
-        style="@style/Input"
+    <LinearLayout
+        android:id="@+id/linearCorreoLogin"
         android:layout_below="@+id/tituloLogin"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/Correo"
+            style="@style/Input"
+            android:layout_below="@+id/tituloLogin"
+            android:inputType="textEmailAddress"
+            android:hint="Correo"
+            />
 
-    <EditText
-        style="@style/Input"
-        android:id="@+id/password"
-        android:layout_below="@+id/Correo"
-        android:inputType="textPassword"
-        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        android:maxLength="15"
-        android:hint="@string/prompt_password"
-        />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearPasswordLogin"
+        android:layout_below="@+id/linearCorreoLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            style="@style/Input"
+            android:id="@+id/password"
+            android:layout_below="@+id/Correo"
+            android:inputType="textPassword"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+            android:maxLength="15"
+            android:hint="@string/prompt_password"
+            />
+
+    </LinearLayout>
 
     <Button
+
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorBackGroudnbutton"
         android:text="@string/action_sign_in"
         android:textColor="@color/colorTextForButton"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/linearPasswordLogin"
         />
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+
 </RelativeLayout>
+    <ProgressBar
+        android:background="#66685e"
+        android:id="@+id/loading"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"
+        android:elevation="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:layout_constraintVertical_bias="0.3" />
 </RelativeLayout>

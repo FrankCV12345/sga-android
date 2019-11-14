@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,12 +39,15 @@ public class LoginActivity extends AppCompatActivity {
     String password = null;
     usuario user  = new usuario();
     Gson gson = new Gson();
+    ProgressBar progressBar ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
             setContentView(R.layout.activity_login);
             MemoriaLocal.CONTEXTOLOGIN = getApplicationContext();
+            progressBar = findViewById(R.id.loading);
+            progressBar.setVisibility(View.INVISIBLE);
             if(MemoriaLocal.getDefaults("token",getApplicationContext()) !=null){
                     startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
             }
@@ -60,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(correo != null && password !=null){
                        if(correo.length() > 0 && password.length() > 0){
+                           progressBar.setVisibility(View.VISIBLE);
                            Logea();
                        }else{
                            Toast.makeText(getApplicationContext(),"Datos no validos",Toast.LENGTH_LONG).show();
@@ -85,7 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ServcioLogin, jsonObject, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, ServcioLogin, jsonObject,
+                new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -96,15 +102,40 @@ public class LoginActivity extends AppCompatActivity {
                     MemoriaLocal.setDefaults("Nombre",response.getString("nombre"),getApplicationContext());
                     startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
                     Toast.makeText(getApplicationContext(),response.getString("nombre"),Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.INVISIBLE);
 
                 } catch (JSONException e) {
+                    progressBar.setVisibility(View.INVISIBLE);
+
+                    System.out.println("ERROR JsonException ! " + e.getMessage());
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                try{
+
+                    if(error.networkResponse != null){
+
+                        if(error.networkResponse.statusCode == 401){
+                            Toast.makeText(getApplicationContext(),"Usuario o contrasena invalidos",Toast.LENGTH_LONG).show();
+
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Puede que tenga problemas con la red",Toast.LENGTH_LONG).show();
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                    progressBar.setVisibility(View.INVISIBLE);
+                    System.out.println("ERROR ! " + error.getMessage());
+
+
+                }catch (Exception e){
+                    progressBar.setVisibility(View.INVISIBLE);
+                        e.printStackTrace();
+                }
             }
         })  ;
 
