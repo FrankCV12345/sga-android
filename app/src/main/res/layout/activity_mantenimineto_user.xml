@@ -108,8 +108,8 @@
                     ></TextView>
 
                 <Spinner
+                    android:id="@+id/SpinerTipoDoc"
                     android:layout_width="fill_parent"
-                    style="@style/Input"
                     android:layout_height="match_parent"></Spinner>
             </LinearLayout>
 
@@ -176,6 +176,7 @@
                     ></TextView>
 
                 <Spinner
+                    android:id="@+id/SpinerTipoSexo"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"></Spinner>
             </LinearLayout>
@@ -203,6 +204,13 @@
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
-
+    <ProgressBar
+        android:id="@+id/ProgressMantuser"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="#66685e"
+        />
     </RelativeLayout>
 </RelativeLayout>

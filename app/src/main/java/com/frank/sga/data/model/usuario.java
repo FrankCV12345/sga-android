@@ -13,6 +13,12 @@ public class usuario {
     private String nombreColegio;
     private Date fechaNacimiento;
 
+
+
+    private tipoDoc tipoDoc;
+
+    private sexo sexo;
+
     public usuario() {
     }
 
@@ -86,5 +92,21 @@ public class usuario {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public com.frank.sga.data.model.tipoDoc getTipoDoc() {
+        return tipoDoc;
+    }
+
+    public void setTipoDoc(com.frank.sga.data.model.tipoDoc tipoDoc) {
+        this.tipoDoc = tipoDoc;
+    }
+
+    public com.frank.sga.data.model.sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(com.frank.sga.data.model.sexo sexo) {
+        this.sexo = sexo;
     }
 }
