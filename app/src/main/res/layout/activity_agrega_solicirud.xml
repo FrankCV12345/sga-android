@@ -35,7 +35,7 @@
                 android:textStyle="bold"
                 ></TextView>
             <Spinner
-                android:id="@+id/planets_spinner"
+                android:id="@+id/SpinnerTipoSolicitud"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -54,7 +54,7 @@
                 />
             <EditText
                 android:layout_below="@+id/tituloComentariosSolicitud"
-                android:id="@+id/EditTextComentariosSobreSolicitud"
+                android:id="@+id/ETComentariosSolicitud"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/colorBackGroundInput"
@@ -88,6 +88,15 @@
             android:text="Cancelar"
             android:textColor="@color/colorTextForButton"
             android:layout_alignParentRight="true"
+            />
+
+        <ProgressBar
+            android:id="@+id/progresBarAddSolicitud"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:elevation="5dp"
+            android:background="@color/colorBarckgrouProgresBar"
             />
     </RelativeLayout>
 

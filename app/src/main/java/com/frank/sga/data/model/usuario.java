@@ -3,6 +3,7 @@ package com.frank.sga.data.model;
 import java.sql.Date;
 
 public class usuario {
+    private  int id;
     private String correo;
     private String password;
     private String  nombre;
@@ -20,6 +21,10 @@ public class usuario {
     private sexo sexo;
 
     public usuario() {
+    }
+
+    public usuario(int id) {
+        this.id = id;
     }
 
     public String getCorreo() {
@@ -108,5 +113,13 @@ public class usuario {
 
     public void setSexo(com.frank.sga.data.model.sexo sexo) {
         this.sexo = sexo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

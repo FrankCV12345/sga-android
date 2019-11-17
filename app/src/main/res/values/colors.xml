@@ -12,4 +12,5 @@
     <color name="colorBackgroudTblLstProfesores">#beebe9</color>
     <color name="colorTextForTitlesBlack">#000</color>
     <color name="colorBackGroudnbutton">#ff5e3a</color>
+    <color name="colorBarckgrouProgresBar">#66685e</color>
 </resources>

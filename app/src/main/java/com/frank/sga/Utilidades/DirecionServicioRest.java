@@ -6,6 +6,15 @@ public class DirecionServicioRest {
     public static String PATH_USUARIO ="/usuario";
     public static String PATH_TIPOS_DOC ="/TipoDNI";
     public static String PATH_TIPOS_SEXO ="/TipoSexo";
+    public static  String PATH_TIPOS_SOLICITUD = "/TipoSolicitud";
+    public static  String PATH_SOLICITUDALUMNO = "/SolicitudesAlumno";
+    public static  String PATH_SOLICITUDES_POR_ALUMNO(Long idAlumno){
+       if(idAlumno !=null && idAlumno > 0){
+           return "/Alumno/"+idAlumno+"/Solicitudes";
+       } else{
+           return null;
+       }
+    }
 
 
 }
