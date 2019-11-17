@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Usuario_Solicitud {
 
-    private Long  id;
+    private int  id;
     private String  comentarios;
     private Date fechaingresosolicitud;
 
@@ -14,7 +14,7 @@ public class Usuario_Solicitud {
     private estadoSolicitud estadosolicitud;
 
 
-    public Usuario_Solicitud(Long id, String comentarios, Date fechaingresosolicitud, usuario usuariosolicitud, usuario usuarioresponsable, TiposSolicitud tiposolicitud, estadoSolicitud estadosolicitud) {
+    public Usuario_Solicitud(int id, String comentarios, Date fechaingresosolicitud, usuario usuariosolicitud, usuario usuarioresponsable, TiposSolicitud tiposolicitud, estadoSolicitud estadosolicitud) {
         this.id = id;
         this.comentarios = comentarios;
         this.fechaingresosolicitud = fechaingresosolicitud;
@@ -33,11 +33,11 @@ public class Usuario_Solicitud {
     public Usuario_Solicitud() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
