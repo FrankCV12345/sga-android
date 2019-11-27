@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println("ESTOO "+response.toString());
                     MemoriaLocal.setDefaults("token",response.getString("token"),getApplicationContext());
                     MemoriaLocal.setDefaults("idUser",response.getString("idUser"),getApplicationContext());
-
+                    MemoriaLocal.setDefaults("idGrupo", String.valueOf(response.getJSONObject("grupo").getInt("id")),getApplicationContext());
                     MemoriaLocal.setDefaults("Nombre",response.getString("nombre"),getApplicationContext());
                     startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
                     Toast.makeText(getApplicationContext(),response.getString("nombre"),Toast.LENGTH_LONG).show();

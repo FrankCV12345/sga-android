@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="ID profesor"
+                android:text="ID "
                 style="@style/TitulosTablas"
                 >
             </TextView>
@@ -47,30 +47,24 @@
                 style="@style/TitulosTablas"
                 >
             </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="ID profesor"
-
-                style="@style/TitulosTablas"
-                >
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="ID profesor"
-                style="@style/TitulosTablas"
-                >
-            </TextView>
         </LinearLayout>
-        <ListView
+       <!-- <ListView
+            android:id="@+id/listViewProfesores"
             android:layout_below="@+id/tituloTablaProfesores"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorBackgroudTblLstProfesores"
             >
 
-        </ListView>
+        </ListView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewProfesores"
+            android:layout_below="@+id/tituloTablaProfesores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/tvIdProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        style="@style/btnRecicler"
+        >
+    </TextView>
+    <TextView
+        android:id="@+id/tvNombreProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        style="@style/btnRecicler"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvApellidoProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        style="@style/btnRecicler"
+        >
+    </TextView>
+    <Button
+        android:id="@+id/btnVerPerfil"
+        android:layout_width="wrap_content"
+        style="@style/btnRecicler"
+        android:background="#FFF"
+        android:text="Ver Perfil"
+        android:textColor="#1F3F85"
+        android:textSize="10dp"
+        >
+    </Button>
+    <Button
+        android:id="@+id/btnCalificaProfe"
+        android:layout_width="wrap_content"
+        android:text="Calificar"
+        style="@style/btnRecicler"
+        android:background="#f6da63"
+        android:textColor="#1F3F85"
+        android:textSize="10dp"
+        >
+
+    </Button>
+</LinearLayout>

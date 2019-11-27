@@ -96,6 +96,7 @@ public class AgregaSolicirud extends AppCompatActivity {
 //llenando el spinner tipos de solicitud
     private void llenaSpinerTipoSolicitudes(){
         String url = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_TIPOS_SOLICITUD;
+        System.out.println(url);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
