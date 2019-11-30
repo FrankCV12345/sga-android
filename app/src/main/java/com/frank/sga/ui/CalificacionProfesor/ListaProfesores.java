@@ -5,9 +5,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -51,7 +53,14 @@ public class ListaProfesores extends AppCompatActivity {
         mQueue = new Volley().newRequestQueue(getApplicationContext());
         recyclerViewProfesores = findViewById(R.id.recyclerviewProfesores);
         recyclerViewProfesores.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-          adapterProfersore = new AdapterListaProfesores(getApplicationContext(),listaPorfesores);
+        adapterProfersore = new AdapterListaProfesores(getApplicationContext(),listaPorfesores);
+        adapterProfersore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //startActivity(new Intent(getApplicationContext(),));
+            }
+        });
         recyclerViewProfesores.setAdapter(adapterProfersore);
         Integer idGrupo = Integer.parseInt(MemoriaLocal.getDefaults("idGrupo",MemoriaLocal.CONTEXTOLOGIN));
         llenaLisViewProfesores(idGrupo);

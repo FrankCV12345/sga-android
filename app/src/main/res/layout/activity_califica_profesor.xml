@@ -49,134 +49,103 @@
                 android:textColor="#FFF"
                 ></TextView>
                 <RadioGroup
+                    android:id="@+id/rGDominaTema"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
                 <RadioButton
+                    android:id="@+id/rbDominaTema_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:text="1"
 
                     ></RadioButton>
                 <RadioButton
+
+                    android:id="@+id/rbDominaTema_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="2"
 
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbDominaTema_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="3"
                     ></RadioButton>
+
                 <RadioButton
+                    android:id="@+id/rbDominaTema_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="4"
                     ></RadioButton>
+
                 <RadioButton
+                    android:id="@+id/rbDominaTema_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="5"
                     ></RadioButton>
 
             </RadioGroup>
         </LinearLayout>
+
+
         <LinearLayout
-            android:id="@+id/linealPreg2"
+            android:id="@+id/linealPreg3"
             android:layout_below="@+id/linealPreg1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-
             >
             <TextView
-                android:id="@+id/AprobechaTiempoPregunta"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Que tanto domina el tema ?"
+                android:text="Aclara las dudas ?"
                 style="@style/TitulosTablas"
                 android:textColor="#FFF"
                 ></TextView>
             <RadioGroup
+                android:id="@+id/rgAclaraDudas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
                 <RadioButton
+                    android:id="@+id/rbAclaraDudas_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="1"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbAclaraDudas_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="2"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbAclaraDudas_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="3"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbAclaraDudas_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="4"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbAclaraDudas_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    ></RadioButton>
-
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linealPreg3"
-            android:layout_below="@+id/linealPreg2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Que tanto domina el tema ?"
-                style="@style/TitulosTablas"
-                android:textColor="#FFF"
-                ></TextView>
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    android:text="5"
                     ></RadioButton>
 
             </RadioGroup>
@@ -192,89 +161,46 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Que tanto domina el tema ?"
+                android:text="Se expresa claramente ?"
                 style="@style/TitulosTablas"
                 android:textColor="#FFF"
                 ></TextView>
             <RadioGroup
+                android:id="@+id/rgExpresaClaramente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
                 >
                 <RadioButton
+                    android:id="@+id/rbExpresaClaramente_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="1"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbExpresaClaramente_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="2"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbExpresaClaramente_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="3"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbExpresaClaramente_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:text="4"
                     ></RadioButton>
                 <RadioButton
+                    android:id="@+id/rbExpresaClaramente_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    ></RadioButton>
-
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linealPreg5"
-            android:layout_below="@+id/linealPreg4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Que tanto domina el tema ?"
-                style="@style/TitulosTablas"
-                android:textColor="#FFF"
-                ></TextView>
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                >
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    ></RadioButton>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    android:text="5"
                     ></RadioButton>
 
             </RadioGroup>
