@@ -48,7 +48,6 @@ public class AdapterListaProfesores extends RecyclerView.Adapter<AdapterListaPro
                     intent.putExtra("IdProfesor",idProfesor);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     contexto.startActivity(intent);
-                    Toast.makeText(contexto,idProfesor,Toast.LENGTH_LONG).show();
                 }
             });
             holder.btnCalificaProfesor.setOnClickListener(new View.OnClickListener() {

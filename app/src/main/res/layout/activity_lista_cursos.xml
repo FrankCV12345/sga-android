@@ -28,28 +28,25 @@
                 android:layout_height="30dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     style="@style/TitulosTablas"
                     android:text="ID Curso"
                     ></TextView>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="match_parent"
                     style="@style/TitulosTablas"
                     android:text="Nombre"
                     ></TextView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    style="@style/TitulosTablas"
-                    android:text="Promedio"
-                    ></TextView>
             </LinearLayout>
-            <ListView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerListaCursos"
                 android:layout_below="@+id/linealTitulosCursos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
 
     </RelativeLayout>

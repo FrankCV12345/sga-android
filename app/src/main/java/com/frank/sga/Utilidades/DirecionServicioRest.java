@@ -10,6 +10,7 @@ public class DirecionServicioRest {
     public static  String PATH_SOLICITUDALUMNO = "/SolicitudesAlumno";
     public static String PATH_PROFESORES_GRUPO = "/grupo";
     public static  String PATH_CALIFICACION_PROFESORES = "/calificacionProfesor";
+    public  static  String PATH_CURSOS_EN_GRUPO = "/CrusosCarreras";
     public static  String PATH_SOLICITUDES_POR_ALUMNO(Long idAlumno){
        if(idAlumno !=null && idAlumno > 0){
            return "/Alumno/"+idAlumno+"/Solicitudes";

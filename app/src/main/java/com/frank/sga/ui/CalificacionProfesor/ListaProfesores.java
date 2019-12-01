@@ -42,7 +42,7 @@ public class ListaProfesores extends AppCompatActivity {
     //ListView ListViewProfesores;
     RequestQueue mQueue;
     List<usuario> listaPorfesores = new ArrayList<>();
-    List<String> listaProfesoresnombre = new ArrayList<>();
+    //List<String> listaProfesoresnombre = new ArrayList<>();
     RecyclerView recyclerViewProfesores;
     AdapterListaProfesores  adapterProfersore;
     @Override
@@ -54,13 +54,11 @@ public class ListaProfesores extends AppCompatActivity {
         recyclerViewProfesores = findViewById(R.id.recyclerviewProfesores);
         recyclerViewProfesores.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         adapterProfersore = new AdapterListaProfesores(getApplicationContext(),listaPorfesores);
-        adapterProfersore.setOnClickListener(new View.OnClickListener() {
+        /*adapterProfersore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //startActivity(new Intent(getApplicationContext(),));
             }
-        });
+        });*/
         recyclerViewProfesores.setAdapter(adapterProfersore);
         Integer idGrupo = Integer.parseInt(MemoriaLocal.getDefaults("idGrupo",MemoriaLocal.CONTEXTOLOGIN));
         llenaLisViewProfesores(idGrupo);
@@ -84,7 +82,7 @@ public class ListaProfesores extends AppCompatActivity {
                         profesor.setId(jsonProfesor.getInt("id"));
                         profesor.setApellidos(jsonProfesor.getString("apellidos"));
                         listaPorfesores.add(profesor);
-                        listaProfesoresnombre.add(profesor.getId()+" "+profesor.getNombre() + "-"+profesor.getApellidos());
+                        //listaProfesoresnombre.add(profesor.getId()+" "+profesor.getNombre() + "-"+profesor.getApellidos());
                     }
                     adapterProfersore.notifyDataSetChanged();
 
