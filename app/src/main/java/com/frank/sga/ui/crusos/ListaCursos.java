@@ -54,7 +54,7 @@ public class ListaCursos extends AppCompatActivity {
         setSupportActionBar(toolbarMenu);
         recyclerViewCurso = findViewById(R.id.recyclerListaCursos);
         recyclerViewCurso.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        adapterListaCursos = new AdapterListaCursos(getApplication(),listaCursos);
+        adapterListaCursos = new AdapterListaCursos(getApplicationContext(),listaCursos);
         recyclerViewCurso.setAdapter(adapterListaCursos);
         mQueue = new Volley().newRequestQueue(getApplicationContext());
         Integer idGurpo = Integer.parseInt( MemoriaLocal.getDefaults("idGrupo",MemoriaLocal.CONTEXTOLOGIN));

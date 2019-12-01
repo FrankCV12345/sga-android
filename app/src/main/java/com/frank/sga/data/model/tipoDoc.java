@@ -1,6 +1,8 @@
 package com.frank.sga.data.model;
 
-public class tipoDoc {
+import java.io.Serializable;
+@SuppressWarnings("serial")
+public class tipoDoc implements Serializable {
     private long id;
     private String nombreDoc;
     private String descripcion;

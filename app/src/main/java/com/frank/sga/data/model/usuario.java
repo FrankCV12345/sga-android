@@ -1,8 +1,10 @@
 package com.frank.sga.data.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class usuario {
+@SuppressWarnings("serial")
+public class usuario implements Serializable {
     private  int id;
     private String correo;
     private String password;

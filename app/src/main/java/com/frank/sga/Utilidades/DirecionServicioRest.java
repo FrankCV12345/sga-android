@@ -11,6 +11,8 @@ public class DirecionServicioRest {
     public static String PATH_PROFESORES_GRUPO = "/grupo";
     public static  String PATH_CALIFICACION_PROFESORES = "/calificacionProfesor";
     public  static  String PATH_CURSOS_EN_GRUPO = "/CrusosCarreras";
+    public  static String PATH_NOTAS_CURSO = "/NotasAlumno";
+    public  static String PATH_NOTAS_PORGRUPO = "/cursoCarrera";
     public static  String PATH_SOLICITUDES_POR_ALUMNO(Long idAlumno){
        if(idAlumno !=null && idAlumno > 0){
            return "/Alumno/"+idAlumno+"/Solicitudes";
@@ -18,4 +20,8 @@ public class DirecionServicioRest {
            return null;
        }
     }
+    public static String PATH_NOTAS_POR_ALUMNO(long idALumno,long idCursoEnGrupo){
+        return PATH_NOTAS_CURSO+"/"+idALumno+PATH_NOTAS_PORGRUPO+"/"+idCursoEnGrupo;
+    }
+
 }

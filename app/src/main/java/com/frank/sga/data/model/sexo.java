@@ -1,6 +1,8 @@
 package com.frank.sga.data.model;
 
-public class sexo {
+import java.io.Serializable;
+@SuppressWarnings("serial")
+public class sexo implements Serializable {
     private long id;
     private String nombreSexo;
     private String Descripcion;
