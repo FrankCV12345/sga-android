@@ -28,6 +28,7 @@ import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.tipoDoc;
 import com.frank.sga.data.model.usuario;
 import com.google.gson.Gson;
@@ -360,7 +361,8 @@ public class manteniminetoUser extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
                 startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));

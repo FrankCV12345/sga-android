@@ -9,8 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.usuario;
+import com.frank.sga.ui.mantUser.manteniminetoUser;
 
 public class DatosProfesor extends AppCompatActivity {
     Toolbar toolbar;
@@ -46,11 +49,14 @@ public class DatosProfesor extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
+                startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
                 break;
             case R.id.IrActualizaDatos:
+                startActivity(new Intent(getApplicationContext(), manteniminetoUser.class));
                 break;
 
         }

@@ -24,6 +24,7 @@ import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.CalificacionAlumnoProfesor;
 import com.frank.sga.data.model.PerfilCalificacionProfesor;
 import com.frank.sga.ui.mantUser.manteniminetoUser;
@@ -87,7 +88,8 @@ public class PerfilProfesor extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
                 startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));

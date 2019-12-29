@@ -22,11 +22,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.adapters.AdapterListaProfesores;
 import com.frank.sga.data.model.usuario;
+import com.frank.sga.ui.mantUser.manteniminetoUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -123,11 +126,14 @@ public class ListaProfesores extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
+                startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
                 break;
             case R.id.IrActualizaDatos:
+                startActivity(new Intent(getApplicationContext(), manteniminetoUser.class));
                 break;
 
         }

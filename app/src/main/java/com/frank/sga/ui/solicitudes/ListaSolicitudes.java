@@ -25,13 +25,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.TiposSolicitud;
 import com.frank.sga.data.model.Usuario_Solicitud;
 import com.frank.sga.data.model.estadoSolicitud;
 import com.frank.sga.data.model.usuario;
+import com.frank.sga.ui.mantUser.manteniminetoUser;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -219,11 +222,14 @@ public class ListaSolicitudes extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
+                startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
                 break;
             case R.id.IrActualizaDatos:
+                startActivity(new Intent(getApplicationContext(), manteniminetoUser.class));
                 break;
 
         }

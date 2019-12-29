@@ -23,6 +23,7 @@ import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.NotasAlumno;
 import com.frank.sga.data.model.usuario;
 import com.frank.sga.ui.mantUser.manteniminetoUser;
@@ -83,7 +84,8 @@ public class DetalleCurso extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
                 startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
@@ -136,6 +138,7 @@ public class DetalleCurso extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                startActivity(new Intent(getApplicationContext(),ListaCursos.class));
                 Toast.makeText(getApplicationContext(),"Problemas al cargar",Toast.LENGTH_LONG).show();
             }
         })
