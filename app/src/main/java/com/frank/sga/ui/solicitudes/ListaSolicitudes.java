@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -49,6 +50,7 @@ import java.util.Map;
 public class ListaSolicitudes extends AppCompatActivity {
     Toolbar toolbarMenu;
     ImageButton imageButtonAddSolicitud;
+    ProgressBar progressBar;
     ListView listaSolicitudesView;
     List<Usuario_Solicitud> listaSolicitudesPorAlumno = new ArrayList<>();
     RequestQueue mQueue;
@@ -64,6 +66,8 @@ public class ListaSolicitudes extends AppCompatActivity {
         toolbarMenu = findViewById(R.id.toolbar);
         toolbarMenu.setTitle(R.string.ListaMisSolicitud);
         setSupportActionBar(toolbarMenu);
+        progressBar = findViewById(R.id.progresListasolicitudes);
+        progressBar.setVisibility(View.VISIBLE);
         listaSolicitudesView = findViewById(R.id.ListViewSolicitudes);
         imageButtonAddSolicitud = findViewById(R.id.BtnaddSolicitud);
         imageButtonAddSolicitud.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +111,7 @@ public class ListaSolicitudes extends AppCompatActivity {
         String url = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_SOLICITUDES_POR_ALUMNO(idUsuario)+"/"+idSolicitud;
         Usuario_Solicitud usuario_solicitud = new Usuario_Solicitud();
         //Coloco el id del estado solicitudo cancelado esto puede variar si borra la BD
-        usuario_solicitud.setEstadosolicitud(new estadoSolicitud(6));
+        usuario_solicitud.setEstadosolicitud(new estadoSolicitud(4));
         JSONObject jsonUpdatedSoliciud = null;
         try {
             jsonUpdatedSoliciud = new JSONObject(gson.toJson(usuario_solicitud, Usuario_Solicitud.class));
@@ -183,7 +187,7 @@ public class ListaSolicitudes extends AppCompatActivity {
                                         +solicitud.getUsuarioresponsable().getNombre()
                                 );
                     }
-
+                    progressBar.setVisibility(View.INVISIBLE);
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spiner_items,lstaDescripcionSolicitudes);
                     listaSolicitudesView.setAdapter(adapter);
                 } catch (JSONException e) {
@@ -194,7 +198,7 @@ public class ListaSolicitudes extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error al cargar sus Solicitudes",Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.INVISIBLE);
             }
         })
         {

@@ -9,13 +9,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -41,6 +45,7 @@ import java.util.Map;
 public class DetalleCurso extends AppCompatActivity {
     Toolbar toolbarMenu;
     Button btnVerDatosProfesor;
+    ProgressBar progresBarNotas;
     RequestQueue mqueue;
     TextView tvNota1;
     TextView tvNota2;
@@ -64,21 +69,15 @@ public class DetalleCurso extends AppCompatActivity {
         tvNota3 = findViewById(R.id.tvNota3);
         tvPromedio = findViewById(R.id.tvPromedio);
         tvEstado = findViewById(R.id.tvEstadoPromedio);
-        btnVerDatosProfesor = findViewById(R.id.btnVerDatosProfesor);
+        progresBarNotas = findViewById(R.id.progresBarNotas);
+        progresBarNotas.setVisibility(View.VISIBLE);
         toolbarMenu.setTitle("Notas Curso ");
         setSupportActionBar(toolbarMenu);
         Long idCursoCarrera = getIntent().getLongExtra("idCursoCarrera",0);
         Integer idAlumno = Integer.parseInt( MemoriaLocal.getDefaults("idUser",MemoriaLocal.CONTEXTOLOGIN));
         mqueue = new Volley().newRequestQueue(getApplicationContext());
         servicioNotas(idAlumno,idCursoCarrera);
-        btnVerDatosProfesor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),DatosProfesor.class);
-                intent.putExtra("profesor",profesor);
-                startActivity(intent);
-            }
-        });
+
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem){
@@ -98,6 +97,12 @@ public class DetalleCurso extends AppCompatActivity {
         return true;
     }
 
+
+
+    public boolean onCreateOptionsMenu( Menu menu){
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
     private void servicioNotas(int idAlumno , Long idCursoCarrera ){
         String url = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_NOTAS_POR_ALUMNO(idAlumno,idCursoCarrera);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -125,10 +130,10 @@ public class DetalleCurso extends AppCompatActivity {
                         tvEstado.setText("ESTADO : --");
                     }
 
-
+                    System.out.println("Respuesta  : "+response.toString());
                     profesor = gson.fromJson(String.valueOf(response.getJSONObject("curso").getJSONObject("profesor")),usuario.class);
 
-                    System.out.println("Nombre " + profesor.getNombre());
+                    progresBarNotas.setVisibility(View.INVISIBLE);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -138,8 +143,13 @@ public class DetalleCurso extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                startActivity(new Intent(getApplicationContext(),ListaCursos.class));
-                Toast.makeText(getApplicationContext(),"Problemas al cargar",Toast.LENGTH_LONG).show();
+                NetworkResponse response = error.networkResponse;
+                if(error instanceof TimeoutError || error instanceof NoConnectionError){
+                    Toast.makeText(getApplicationContext(),"Error de conexion",Toast.LENGTH_LONG).show();
+                    progresBarNotas.setVisibility(View.INVISIBLE);
+                }else if( response.statusCode == 404 ){
+                    progresBarNotas.setVisibility(View.INVISIBLE);
+                }
             }
         })
         {

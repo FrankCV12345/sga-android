@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.frank.sga.R;
 import com.frank.sga.data.model.cursosCarreras;
+import com.frank.sga.data.model.usuario;
+import com.frank.sga.ui.crusos.DatosProfesor;
 import com.frank.sga.ui.crusos.DetalleCurso;
 
 import java.util.List;
@@ -46,6 +48,16 @@ public class AdapterListaCursos extends  RecyclerView.Adapter<AdapterListaCursos
                 contexto.startActivity(intent);
             }
         });
+        holder.btnVerProfesor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usuario profesor = listaCursos.get(position).getProfesor();
+                Intent intent = new Intent(contexto, DatosProfesor.class);
+                intent.putExtra("profesor",profesor);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                contexto.startActivity(intent);
+            }
+        });
         holder.asignaDatos(listaCursos.get(position));
     }
 
@@ -58,12 +70,14 @@ public class AdapterListaCursos extends  RecyclerView.Adapter<AdapterListaCursos
         TextView tvIdCurso;
         TextView tvNombreCurso;
         Button btnVerMas;
+        Button btnVerProfesor;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             tvIdCurso = itemView.findViewById(R.id.tvidCurso);
             tvNombreCurso = itemView.findViewById(R.id.tvNombreCurso);
             btnVerMas = itemView.findViewById(R.id.btnVerMasCurso);
+            btnVerProfesor = itemView.findViewById(R.id.btnVerProfesor);
         }
 
         public void asignaDatos( cursosCarreras curso){

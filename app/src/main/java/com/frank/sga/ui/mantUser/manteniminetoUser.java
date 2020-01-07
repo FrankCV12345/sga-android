@@ -272,7 +272,8 @@ public class manteniminetoUser extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(),"Problemas al cargar datos",Toast.LENGTH_LONG).show();
             }
         })
         {

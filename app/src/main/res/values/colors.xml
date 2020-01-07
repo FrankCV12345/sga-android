@@ -4,13 +4,14 @@
     <color name="colorPrimaryDark">#2957B0</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorTextForButton">#FFF</color>
-    <color name="colorBackGroundBlackActiviti">#2c365d</color>
-    <color name="colorBackGroundToolbar">#272e4f</color>
-    <color name="colorBackGroundInput">#f2f2f0</color>
-    <color name="colorTextTitulo">#FFF</color>
-    <color name="colorBackgroundIconMenu">#5f6769</color>
+    <color name="colorBackGroundBlackActiviti">#effffb</color>
+    <color name="colorBackGroundToolbar">#4f98ca</color>
+    <color name="colorBackGroundInput">#FFF</color>
+    <color name="colorTextTitulo">#272727</color>
+    <color name="colorBackgroundIconMenu">#272727</color>
     <color name="colorBackgroudTblLstProfesores">#beebe9</color>
     <color name="colorTextForTitlesBlack">#000</color>
     <color name="colorBackGroudnbutton">#ff5e3a</color>
     <color name="colorBarckgrouProgresBar">#66685e</color>
+    <color name="colorTexto">#272727</color>
 </resources>

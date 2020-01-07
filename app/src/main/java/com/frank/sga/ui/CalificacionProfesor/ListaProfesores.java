@@ -57,11 +57,6 @@ public class ListaProfesores extends AppCompatActivity {
         recyclerViewProfesores = findViewById(R.id.recyclerviewProfesores);
         recyclerViewProfesores.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         adapterProfersore = new AdapterListaProfesores(getApplicationContext(),listaPorfesores);
-        /*adapterProfersore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });*/
         recyclerViewProfesores.setAdapter(adapterProfersore);
         Integer idGrupo = Integer.parseInt(MemoriaLocal.getDefaults("idGrupo",MemoriaLocal.CONTEXTOLOGIN));
         llenaLisViewProfesores(idGrupo);
@@ -85,7 +80,6 @@ public class ListaProfesores extends AppCompatActivity {
                         profesor.setId(jsonProfesor.getInt("id"));
                         profesor.setApellidos(jsonProfesor.getString("apellidos"));
                         listaPorfesores.add(profesor);
-                        //listaProfesoresnombre.add(profesor.getId()+" "+profesor.getNombre() + "-"+profesor.getApellidos());
                     }
                     adapterProfersore.notifyDataSetChanged();
 

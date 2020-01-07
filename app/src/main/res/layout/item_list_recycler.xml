@@ -4,26 +4,28 @@
     android:layout_height="match_parent" >
     <TextView
         android:id="@+id/tvIdProfesor"
-        android:layout_width="wrap_content"
+        android:layout_width="10dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorTextTitulo"
         android:textSize="10dp"
         style="@style/btnRecicler"
         >
     </TextView>
     <TextView
         android:id="@+id/tvNombreProfesor"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:textSize="10dp"
+        android:textColor="@color/colorTextTitulo"
         style="@style/btnRecicler"
         >
 
     </TextView>
-
     <TextView
         android:id="@+id/tvApellidoProfesor"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorTextTitulo"
         android:textSize="10dp"
         style="@style/btnRecicler"
         >

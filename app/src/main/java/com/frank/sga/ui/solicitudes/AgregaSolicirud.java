@@ -3,6 +3,7 @@ package com.frank.sga.ui.solicitudes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,12 +24,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.frank.sga.MenuPrincipal;
 import com.frank.sga.R;
 import com.frank.sga.Utilidades.DirecionServicioRest;
 import com.frank.sga.Utilidades.MemoriaLocal;
+import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.data.model.TiposSolicitud;
 import com.frank.sga.data.model.Usuario_Solicitud;
 import com.frank.sga.data.model.usuario;
+import com.frank.sga.ui.mantUser.manteniminetoUser;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -76,12 +80,18 @@ public class AgregaSolicirud extends AppCompatActivity {
 
             }
         });
+        btnCancelaSolicicitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnEnviaSolicitud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( (solicitud.getTiposolicitud() !=  null && ETComentariosSolicitud.getText().toString() != null) || !ETComentariosSolicitud.getText().toString().equals(' ')|| !ETComentariosSolicitud.getText().toString().isEmpty()){
+                String comentarios  = ETComentariosSolicitud.getText().toString();
+                if(  !comentarios.isEmpty() ){
                     solicitud.setUsuariosolicitud(new usuario(
-
                             Integer.parseInt(MemoriaLocal.getDefaults("idUser",MemoriaLocal.CONTEXTOLOGIN))
                     ));
                     solicitud.setComentarios(ETComentariosSolicitud.getText().toString());
@@ -174,7 +184,6 @@ public class AgregaSolicirud extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(getApplicationContext(),"Solicitud Registrada",Toast.LENGTH_LONG).show();
-
                         progressBar.setVisibility(View.INVISIBLE);
                     }
                 },
@@ -211,11 +220,14 @@ public class AgregaSolicirud extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
-
+                MetodosUtilitarios.CerrarSescion();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
+                startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
                 break;
             case R.id.IrActualizaDatos:
+                startActivity(new Intent(getApplicationContext(), manteniminetoUser.class));
                 break;
 
         }

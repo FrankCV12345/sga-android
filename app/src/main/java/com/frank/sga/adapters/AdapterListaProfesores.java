@@ -54,7 +54,6 @@ public class AdapterListaProfesores extends RecyclerView.Adapter<AdapterListaPro
                 @Override
                 public void onClick(View v) {
                     Integer idProfesor = listaProfesores.get(position).getId();
-
                     Intent intent =new Intent(contexto, CalificaProfesor.class);
                     intent.putExtra("IdProfesor",idProfesor);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

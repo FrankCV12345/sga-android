@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.solicitudes.AgregaSolicirud"
     android:background="@color/colorBackGroundBlackActiviti"
+
     >
     <include
         android:id="@+id/toolbar"
@@ -17,10 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-
         android:layout_centerVertical="true"
         android:padding="5dp"
-        android:background="#FFF"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorBackGroundBlackActiviti"
+
         >
         <LinearLayout
             android:id="@+id/ContListTiposSolicitudes"
@@ -44,7 +46,8 @@
             android:layout_below="@+id/ContListTiposSolicitudes"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <TextView
                 android:id="@+id/tituloComentariosSolicitud"
                 android:layout_width="match_parent"
@@ -91,15 +94,15 @@
 
             />
 
-        <ProgressBar
-            android:id="@+id/progresBarAddSolicitud"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            android:elevation="5dp"
-            android:background="@color/colorBarckgrouProgresBar"
-            />
+
     </RelativeLayout>
 
-
+    <ProgressBar
+        android:id="@+id/progresBarAddSolicitud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:elevation="5dp"
+        android:background="@color/colorBarckgrouProgresBar"
+        />
 </RelativeLayout>

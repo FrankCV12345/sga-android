@@ -4,18 +4,32 @@
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/tvidCurso"
-        android:layout_width="60dp"
+        android:layout_width="40dp"
         android:textAlignment="center"
+        android:textColor="@color/colorTexto"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tvNombreCurso"
-        android:layout_width="70dp"
+        android:layout_width="125dp"
+        android:textColor="@color/colorTexto"
         android:textAlignment="center"
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btnVerMasCurso"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ver mas"
+        style="@style/btnRecicler"
+        android:background="#7fa998"
+        android:text="Ver Detalles"
+        android:textColor="#FFF"
+        android:textSize="10dp"
+        />
+    <Button
+        android:id="@+id/btnVerProfesor"
+        android:layout_width="wrap_content"
+        style="@style/btnRecicler"
+        android:background="#40bfc1"
+        android:text="Ver Profesor"
+        android:textColor="#FFF"
+        android:textSize="10dp"
         />
 </LinearLayout>

@@ -28,7 +28,9 @@ import com.frank.sga.Utilidades.MetodosUtilitarios;
 import com.frank.sga.adapters.AdapterListaCursos;
 import com.frank.sga.data.model.Curso;
 import com.frank.sga.data.model.cursosCarreras;
+import com.frank.sga.data.model.usuario;
 import com.frank.sga.ui.mantUser.manteniminetoUser;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +47,7 @@ public class ListaCursos extends AppCompatActivity {
     RecyclerView recyclerViewCurso;
     List<cursosCarreras> listaCursos = new ArrayList<>();
     AdapterListaCursos adapterListaCursos;
-
+    Gson gson = new Gson();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,15 +75,17 @@ public class ListaCursos extends AppCompatActivity {
                     for(int i =0 ; i < response.length();i ++ ){
                         JSONObject jsonCursoEngrupo = response.getJSONObject(i);
                         JSONObject jsonCurso = jsonCursoEngrupo.getJSONObject("curso");
+                        JSONObject jsonProfesor =  jsonCursoEngrupo.getJSONObject("profesor");
+
                         cursosCarreras cursoEnGrupo = new cursosCarreras();
 
                         Curso curso = new Curso();
                         curso.setNombrecurso(jsonCurso.getString("nombrecurso"));
                         curso.setId(jsonCurso.getInt("id"));
-
+                        usuario profesor = gson.fromJson(jsonProfesor.toString(),usuario.class);
                         cursoEnGrupo.setId(jsonCursoEngrupo.getInt("id"));
                         cursoEnGrupo.setCurso(curso);
-
+                        cursoEnGrupo.setProfesor(profesor);
                         listaCursos.add(cursoEnGrupo);
                     }
                     adapterListaCursos.notifyDataSetChanged();

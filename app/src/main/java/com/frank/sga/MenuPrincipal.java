@@ -67,7 +67,7 @@ public class MenuPrincipal extends AppCompatActivity {
         switch (menuItem.getItemId()){
             case R.id.CerrarCession:
                 MetodosUtilitarios.CerrarSescion();
-                finish();
+                finishAffinity();
                 break;
             case R.id.IrMenuPrincipal:
                 startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));

@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void Logea(){
+
         String ServcioLogin = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_LOGIN;
         user.setCorreo(correo);
         user.setPassword(password);

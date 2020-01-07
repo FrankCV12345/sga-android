@@ -4,20 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -41,6 +46,7 @@ public class CalificaProfesor extends AppCompatActivity {
     Toolbar toolbarMenu;
     Button btnGuardar;
     Button btbCancelar;
+    ProgressBar progressBar;
     RadioGroup radioGroupExpresaClaramente;
     RadioGroup radioGroupDominaTema;
     RadioGroup radioGroupAclaraDudas;
@@ -58,6 +64,8 @@ public class CalificaProfesor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_califica_profesor);
         toolbarMenu = findViewById(R.id.toolbar);
+        progressBar = findViewById(R.id.ProgressCalificaProfesor);
+        progressBar.setVisibility(View.VISIBLE);
         EDComentarios = findViewById(R.id.EditTextComentarios);
         btnGuardar = findViewById(R.id.guradarCalificacionProfesor);
         btbCancelar = findViewById(R.id.CancelaCalificacionProfe);
@@ -70,28 +78,32 @@ public class CalificaProfesor extends AppCompatActivity {
         alumno.setId(Integer
                 .parseInt(MemoriaLocal.getDefaults("idUser",MemoriaLocal.CONTEXTOLOGIN))
         );
+        BuscaCalificacion(profesor.getId(),alumno.getId());
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 int radioclaraDudas  = radioGroupAclaraDudas.getCheckedRadioButtonId();
                 int radioDominaTema = radioGroupDominaTema.getCheckedRadioButtonId();
                 int radioExpresaClaramente = radioGroupExpresaClaramente.getCheckedRadioButtonId();
-                radioBtnAclaraDudas = findViewById(radioclaraDudas);
-                radioBtnDominaTemas = findViewById(radioDominaTema);
-                radioBtnExpresaClaro = findViewById(radioExpresaClaramente);
+                if(radioclaraDudas != -1 && radioDominaTema != -1 && radioExpresaClaramente != -1){
+                    radioBtnAclaraDudas = findViewById(radioclaraDudas);
+                    radioBtnDominaTemas = findViewById(radioDominaTema);
+                    radioBtnExpresaClaro = findViewById(radioExpresaClaramente);
 
-                calificacionAlumnoProfesor.setAclaradudas( Integer.parseInt(radioBtnAclaraDudas.getText().toString()));
-                calificacionAlumnoProfesor.setDominatema(Integer.parseInt(radioBtnDominaTemas.getText().toString()));
-                calificacionAlumnoProfesor.setExpresaclaramente(Integer.parseInt(radioBtnExpresaClaro.getText().toString()));
+                    calificacionAlumnoProfesor.setAclaradudas( Integer.parseInt(radioBtnAclaraDudas.getText().toString()));
+                    calificacionAlumnoProfesor.setDominatema(Integer.parseInt(radioBtnDominaTemas.getText().toString()));
+                    calificacionAlumnoProfesor.setExpresaclaramente(Integer.parseInt(radioBtnExpresaClaro.getText().toString()));
 
-                calificacionAlumnoProfesor.setAlumnocalifica(alumno);
-                calificacionAlumnoProfesor.setProfesorcalificado(profesor);
-                calificacionAlumnoProfesor.setComentario(EDComentarios.getText().toString());
-                String jsonObject = gson.toJson(calificacionAlumnoProfesor,CalificacionAlumnoProfesor.class);
-                RegistraCalificacion(jsonObject);
-                Toast.makeText(getApplicationContext(),jsonObject,Toast.LENGTH_LONG).show();
+                    calificacionAlumnoProfesor.setAlumnocalifica(alumno);
+                    calificacionAlumnoProfesor.setProfesorcalificado(profesor);
+                    calificacionAlumnoProfesor.setComentario(EDComentarios.getText().toString());
+                    String jsonObject = gson.toJson(calificacionAlumnoProfesor,CalificacionAlumnoProfesor.class);
+                    RegistraCalificacion(jsonObject);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Debe ingresar calificaiones ",Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
         btbCancelar.setOnClickListener(new View.OnClickListener() {
@@ -154,12 +166,41 @@ public class CalificaProfesor extends AppCompatActivity {
                 return headers;
             }
 
-        }
-
-                ;
-
-
+        };
         mQueue.add(jsonObjectRequest);
     }
+    private void BuscaCalificacion(long idProfesor , long idAlumno){
 
+        String url = DirecionServicioRest.IP_SERVICIO_REST+DirecionServicioRest.PATH_CALIFICACION_PROFESORES+"/"+idProfesor+DirecionServicioRest.PATH_BUSCARCALIFICACION_POR_PROFESOR_ALUMNO+"/"+idAlumno;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response){
+                Toast.makeText(getApplicationContext(),"Usted ya califico a este profesor",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                NetworkResponse response = error.networkResponse;
+                if(error instanceof TimeoutError || error instanceof NoConnectionError ){
+                    Toast.makeText(getApplicationContext(),"Error de conexion",Toast.LENGTH_LONG).show();
+                }else if( response.statusCode == 404 ){
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            }
+        })
+        {
+            /** Passing some request headers* */
+            @Override
+            public Map getHeaders() throws AuthFailureError {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", MemoriaLocal.getDefaults("token",MemoriaLocal.CONTEXTOLOGIN));
+                return headers;
+            }
+        };
+        mQueue.add(jsonObjectRequest);
+    }
 }

@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/TextoTituloCalificaProfesor"
-            android:textColor="#FFFF"
+            android:textColor="@color/colorTexto"
             android:padding="4dp"
 
             >
@@ -42,11 +42,8 @@
             >
             <TextView
                 android:id="@+id/DominaTemaPregunta"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:text="Que tanto domina el tema ?"
-                style="@style/TitulosTablas"
-                android:textColor="#FFF"
+                style="@style/TitulosEncuesta"
                 ></TextView>
                 <RadioGroup
                     android:id="@+id/rGDominaTema"
@@ -104,11 +101,8 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:text="Aclara las dudas ?"
-                style="@style/TitulosTablas"
-                android:textColor="#FFF"
+                style="@style/TitulosEncuesta"
                 ></TextView>
             <RadioGroup
                 android:id="@+id/rgAclaraDudas"
@@ -159,11 +153,8 @@
             android:orientation="horizontal"
             >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:text="Se expresa claramente ?"
-                style="@style/TitulosTablas"
-                android:textColor="#FFF"
+                style="@style/TitulosEncuesta"
                 ></TextView>
             <RadioGroup
                 android:id="@+id/rgExpresaClaramente"
@@ -222,7 +213,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Comentarios adicionales"
-            android:textColor="#FFF"
+            android:textColor="@color/colorTexto"
             android:textAlignment="center"
             >
 
@@ -266,5 +257,13 @@
             />
     </RelativeLayout>
 
+    <ProgressBar
+        android:id="@+id/ProgressCalificaProfesor"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="#66685e"
+        />
 
 </RelativeLayout>

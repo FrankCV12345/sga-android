@@ -23,7 +23,7 @@
             android:layout_height="30dp"
             android:text="Cantidad de Calificaciones : "
             android:layout_alignParentTop="true"
-            android:textColor="#FFF"
+            android:textColor="@color/colorTextTitulo"
             android:textSize="14dp"
             />
         <RelativeLayout
@@ -173,13 +173,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="7dp"
+            android:elevation="1dp"
             >
             <TextView
                 android:id="@+id/tituloPerfilComentarios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Comentarios : "
-                android:textColor="#FFFF"
+                android:textColor="#272727"
                 >
 
             </TextView>
@@ -187,7 +188,7 @@
                 android:layout_below="@+id/tituloPerfilComentarios"
                 android:id="@+id/comentariosPerfil"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 android:background="#FFF"
 
                 ></ListView>

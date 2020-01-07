@@ -22,7 +22,7 @@
             android:id="@+id/contDetalleCursoNotas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBackgroudTblLstProfesores"
+
             >
             <LinearLayout
                 android:id="@+id/LinealNota01"
@@ -38,7 +38,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Evaluacion continua 01 : 16"/>
+                    android:text="Evaluacion continua 01 : -"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/LinealNota02"
@@ -55,7 +55,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Evaluacion continua 02 : 12"/>
+                    android:text="Evaluacion continua 02 : --"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/LinealNota03"
@@ -72,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Evaluacion continua 03 : 10"/>
+                    android:text="Evaluacion continua 03 : --"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/LinealPromedio"
@@ -89,7 +89,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="Promedio : 10"/>
+                    android:text="Promedio : --"/>
             </LinearLayout>
 
             <LinearLayout
@@ -108,20 +108,17 @@
                     android:gravity="center"
                     android:textColor="#cb3234"
                     android:textStyle="bold"
-                    android:text="DESAPROBADO"/>
+                    android:text="--"/>
             </LinearLayout>
         </RelativeLayout>
 
-        <Button
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/contDetalleCursoNotas"
-            android:id="@+id/btnVerDatosProfesor"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:background="@color/colorPrimary"
-            android:text="Mas sobre el Profesor"
-            android:textColor="@color/colorTextForButton"
-            android:layout_centerHorizontal="true"
-            />
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progresBarNotas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:elevation="5dp"
+        android:background="@color/colorBarckgrouProgresBar"
+        />
 </RelativeLayout>

@@ -14,7 +14,7 @@ public class usuario implements Serializable {
     private String dni;
     private String telefono;
     private String nombreColegio;
-    private Date fechaNacimiento;
+    //private Date fechaNacimiento;
 
 
 
@@ -93,13 +93,7 @@ public class usuario implements Serializable {
         this.nombreColegio = nombreColegio;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
 
     public com.frank.sga.data.model.tipoDoc getTipoDoc() {
         return tipoDoc;
