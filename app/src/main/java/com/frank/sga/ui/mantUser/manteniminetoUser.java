@@ -43,6 +43,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.frank.sga.data.model.sexo;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.bind.SqlDateTypeAdapter;
 
 public class manteniminetoUser extends AppCompatActivity {
     Toolbar toolbarMenu;
@@ -55,7 +57,12 @@ public class manteniminetoUser extends AppCompatActivity {
     private Spinner SpinnerTipoSexo, SpinnerTipoDOC;
     private List<sexo> listTipoSexo = new ArrayList<>();
     private List<tipoDoc> listTipoDoc = new ArrayList<>();
-    Gson gson = new Gson();
+    //Gson gson = new Gson();
+    SqlDateTypeAdapter sqlAdapter = new SqlDateTypeAdapter();
+    Gson gson =  new GsonBuilder()
+            .registerTypeAdapter(java.util.Date.class, sqlAdapter )
+            .setDateFormat("yyyy-MM-dd")
+            .create();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

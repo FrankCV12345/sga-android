@@ -1,6 +1,7 @@
 package com.frank.sga.data.model;
 
 import java.sql.Date;
+import java.text.DecimalFormat;
 
 public class NotasAlumno {
     private long id;
@@ -100,8 +101,13 @@ public class NotasAlumno {
 
 
     public String CalculaPromedio(){
-        if (this.nota1 != null && this.nota2 !=null && this.nota3 !=null){
-            return   String.valueOf((nota1+ nota2 +  nota3)/3);
+        if (this.nota1 != null && this.nota2 !=null && this.nota3 !=null && this.examenfinal != 0){
+            DecimalFormat df = new DecimalFormat("#.00");
+            return   String.valueOf(
+                    df.format(
+                    (nota1 * 0.04)+ (nota2* 0.12) +  (nota3 * 0.24) + (examenfinal * 0.6)
+                    )
+                );
         }else{
             return "--";
         }

@@ -177,7 +177,7 @@ public class CalificaProfesor extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response){
                 Toast.makeText(getApplicationContext(),"Usted ya califico a este profesor",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), MenuPrincipal.class));
+                finish();
                 progressBar.setVisibility(View.INVISIBLE);
             }
         }, new Response.ErrorListener() {

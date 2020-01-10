@@ -75,8 +75,24 @@
                     android:text="Evaluacion continua 03 : --"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/LinealPromedio"
+                android:id="@+id/LinealExamenFinal"
                 android:layout_below="@+id/LinealNota03"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                style="@style/LinealIndicadores">
+
+                <TextView
+                    android:id="@+id/tvExmaneFinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="#000"
+                    android:text="Examen Final : --"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/LinealPromedio"
+                android:layout_below="@+id/LinealExamenFinal"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"

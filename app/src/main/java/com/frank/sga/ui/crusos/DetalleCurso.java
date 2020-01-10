@@ -51,6 +51,8 @@ public class DetalleCurso extends AppCompatActivity {
     TextView tvNota2;
     TextView tvNota3;
     TextView tvEstado;
+    TextView tvExmaneFinal;
+
     TextView tvPromedio;
     NotasAlumno notasAlumno = new NotasAlumno();
     usuario profesor ;
@@ -67,6 +69,7 @@ public class DetalleCurso extends AppCompatActivity {
         tvNota1 = findViewById(R.id.tvNota1);
         tvNota2 = findViewById(R.id.tvNota2);
         tvNota3 = findViewById(R.id.tvNota3);
+        tvExmaneFinal = findViewById(R.id.tvExmaneFinal);
         tvPromedio = findViewById(R.id.tvPromedio);
         tvEstado = findViewById(R.id.tvEstadoPromedio);
         progresBarNotas = findViewById(R.id.progresBarNotas);
@@ -112,6 +115,7 @@ public class DetalleCurso extends AppCompatActivity {
                     notasAlumno.setNota1(evaluaNulo("nota1",response));
                     notasAlumno.setNota2(evaluaNulo("nota2",response));
                     notasAlumno.setNota3(evaluaNulo("nota3",response));
+                    notasAlumno.setExamenfinal(evaluaNulo("examenfinal",response));
                     if(response.isNull("estadoaprobado")){
                             notasAlumno.setEstadoaprobado(null);
                     }else{
@@ -121,6 +125,7 @@ public class DetalleCurso extends AppCompatActivity {
                     tvNota1.setText("NOTA 1 :"+evaluaDoubleNuloToString(notasAlumno.getNota1()));
                     tvNota2.setText("NOTA 2 :"+evaluaDoubleNuloToString(notasAlumno.getNota2()));
                     tvNota3.setText("NOTA 3 :"+evaluaDoubleNuloToString(notasAlumno.getNota3()));
+                    tvExmaneFinal.setText("EXAMEN FINAL"+evaluaDoubleNuloToString(notasAlumno.getExamenfinal()));
                     tvPromedio.setText("PROMEDIO : "+notasAlumno.CalculaPromedio());
 
 
