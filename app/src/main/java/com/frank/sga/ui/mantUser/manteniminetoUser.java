@@ -46,14 +46,14 @@ import com.frank.sga.data.model.sexo;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.bind.SqlDateTypeAdapter;
 
-public class manteniminetoUser extends AppCompatActivity {
+public class manteniminetoUser extends AppCompatActivity implements  DialogActualizaContrasena.IDialogActualizaContrasenaListener {
     Toolbar toolbarMenu;
     private usuario user = new usuario();
     private RequestQueue mQueque;
     private ProgressBar progressBar;
     private Long idUser;
     private EditText ETNombreUSer,ETApellidos,ETdni,ETCorreo,ETTelefono;
-    private Button btnCancela, btnActualiza;
+    private Button btnCancela, btnActualiza,btnOpenDialoActualizaContra;
     private Spinner SpinnerTipoSexo, SpinnerTipoDOC;
     private List<sexo> listTipoSexo = new ArrayList<>();
     private List<tipoDoc> listTipoDoc = new ArrayList<>();
@@ -98,6 +98,7 @@ public class manteniminetoUser extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
             }
         });
+        btnOpenDialoActualizaContra = findViewById(R.id.btnOpenDialogActualizaContra);
         setSupportActionBar(toolbarMenu);
         mQueque = new Volley().newRequestQueue(getApplicationContext());
 
@@ -113,7 +114,12 @@ public class manteniminetoUser extends AppCompatActivity {
 
             }
         });
-
+        btnOpenDialoActualizaContra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Opendialod();
+            }
+        });
         SpinnerTipoDOC.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -130,11 +136,6 @@ public class manteniminetoUser extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(),"No hay id de usuario",Toast.LENGTH_LONG).show();
         }
-
-
-
-
-
     }
 //lleno el spinner de TiposSexo
     private void llenaSpinnerTipoSexo(final long idSexoPredeterminado){
@@ -295,7 +296,10 @@ public class manteniminetoUser extends AppCompatActivity {
         };
         mQueque.add(jsonObjectRequest);
     }
-
+    private void Opendialod(){
+        DialogActualizaContrasena dialog  =  new DialogActualizaContrasena();
+        dialog.show(getSupportFragmentManager(),"No se que sea esto");
+    }
     private void ActualizaUser(Long idUser , String  nombre , String apellidos  , String dni , String correo , String telefono){
 
         progressBar.setVisibility(View.VISIBLE);
@@ -359,12 +363,10 @@ public class manteniminetoUser extends AppCompatActivity {
             ETCorreo.setText(user.getCorreo());
     }
 
-
     public boolean onCreateOptionsMenu( Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
-
 
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
@@ -382,4 +384,50 @@ public class manteniminetoUser extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void ApplyText(String Actualcontra, String NvaContra, String Contraconfirmada) {
+        progressBar.setVisibility(View.VISIBLE);
+        if( NvaContra.equals(Contraconfirmada)){
+            ActualizaContra(Actualcontra,NvaContra);
+        }else{
+            Toast.makeText(getApplicationContext(),"Las contrasenas no coinciden",Toast.LENGTH_LONG).show();
+            progressBar.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
+    private void ActualizaContra(String Actualcontra, String NvaContra){
+
+        String url = DirecionServicioRest.IP_SERVICIO_REST +"/usuario/updatePassword/"+idUser+"/oldpass="+Actualcontra+"&newpass="+NvaContra;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        System.out.println("RESPUESTA : "+response.toString());
+                        Toast.makeText(getApplicationContext(),"Contrasena Actualizada",Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(),"No se pudo Actualizar la contrasena",Toast.LENGTH_LONG).show();
+            }
+        })
+        {
+            /** Passing some request headers* */
+            @Override
+            public Map getHeaders() throws AuthFailureError {
+                HashMap headers = new HashMap();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", MemoriaLocal.getDefaults("token",MemoriaLocal.CONTEXTOLOGIN));
+                return headers;
+            }
+        }
+
+                ;
+        mQueque.add(jsonObjectRequest);
+
+    }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="300dp"
+    android:padding="5dp"
+    android:layout_margin="5dp"
+    android:background="#FFF"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    >
+    <EditText
+        android:id="@+id/etActualContra"
+        android:layout_width="match_parent"
+        style="@style/DialogActualizaContra"
+        android:hint="Ingrese contraseña actual"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/etNavContra"
+        android:layout_below="@+id/etActualContra"
+        android:layout_width="match_parent"
+        style="@style/DialogActualizaContra"
+        android:hint="Ingrese nueva contraseña "
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/etContraconfirmada"
+        android:layout_below="@+id/etNavContra"
+        android:layout_width="match_parent"
+        style="@style/DialogActualizaContra"
+        android:hint="Ingrese confirme contraseña actual"
+        >
+    </EditText>
+</RelativeLayout>

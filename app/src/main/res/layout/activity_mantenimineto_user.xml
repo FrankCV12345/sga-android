@@ -19,6 +19,7 @@
         android:layout_centerVertical="true"
         >
         <RelativeLayout
+            android:id="@+id/reltiveCont"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -205,6 +206,18 @@
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
+        <Button
+            android:id="@+id/btnOpenDialogActualizaContra"
+            android:layout_below="@+id/reltiveCont"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Actualizar Contraseña"
+            android:background="#2c7873"
+            android:textColor="#FFF"
+            android:elevation="2dp"
+            >
+
+        </Button>
     <ProgressBar
         android:id="@+id/ProgressMantuser"
         android:layout_alignParentTop="true"

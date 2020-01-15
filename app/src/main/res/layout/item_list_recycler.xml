@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
     <TextView
         android:id="@+id/tvIdProfesor"
-        android:layout_width="10dp"
+        android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorTextTitulo"
         android:textSize="10dp"

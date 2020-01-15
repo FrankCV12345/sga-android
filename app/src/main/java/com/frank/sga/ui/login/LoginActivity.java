@@ -96,20 +96,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    System.out.println("ESTOO "+response.toString());
+
                     MemoriaLocal.setDefaults("token",response.getString("token"),getApplicationContext());
                     MemoriaLocal.setDefaults("idUser",response.getString("idUser"),getApplicationContext());
                     MemoriaLocal.setDefaults("idGrupo", String.valueOf(response.getJSONObject("grupo").getInt("id")),getApplicationContext());
                     MemoriaLocal.setDefaults("Nombre",response.getString("nombre"),getApplicationContext());
                     startActivity(new Intent(getApplicationContext(),MenuPrincipal.class));
-                    Toast.makeText(getApplicationContext(),response.getString("nombre"),Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.INVISIBLE);
-
+                    System.out.println(response.getString("rol"));
                 } catch (JSONException e) {
                     progressBar.setVisibility(View.INVISIBLE);
-
-                    System.out.println("ERROR JsonException ! " + e.getMessage());
-                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Su usuario no es un alumno",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }

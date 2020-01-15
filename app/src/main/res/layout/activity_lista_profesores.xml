@@ -27,7 +27,7 @@
             android:orientation="horizontal"
             android:background="@color/colorBackgroudTblLstProfesores">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:text="ID "
                 style="@style/TitulosTablas"
